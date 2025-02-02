@@ -1,0 +1,14 @@
+export function getStarColor(spectralType: string): number {
+  const colors = {
+    'O': 0x4895F7, // bleu
+    'B': 0x8AD4FF, // bleu-blanc
+    'A': 0xFFFFFF, // blanc
+    'F': 0xFFF7C6, // blanc-jaune
+    'G': 0xFFE64B, // jaune
+    'K': 0xFFAA33, // orange
+    'M': 0xFF4B4B  // rouge
+  };
+
+  const type = spectralType.charAt(0).toUpperCase();
+  return colors[type as keyof typeof colors] || 0xFFFFFF;
+}
