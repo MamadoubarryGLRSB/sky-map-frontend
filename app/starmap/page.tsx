@@ -1,15 +1,23 @@
-import StarMapWrapper from '@/components/starmap/starmap-wrapper';
-import { StarMapData } from '@/types/api-responses.types';
+import { StarMapData } from "@/types/api-responses.types";
+import StarMapWrapper from "@/components/starmap/starmap-wrapper";
 
 async function getStarData(): Promise<StarMapData> {
-  const nearestStars = await fetch(`http://localhost:3000/stars/nearest-visible`);
+  const nearestStars = await fetch(
+    `http://localhost:3000/stars/nearest-visible`
+  );
   const brightestStars = await fetch(`http://localhost:3000/stars/brightest`);
-  const constellations = await fetch(`http://localhost:3000/stars/constellations`);
+  const hottestStars = await fetch(`http://localhost:3000/stars/hottest`);
+  const largestStars = await fetch(`http://localhost:3000/stars/largest`);
+  const constellations = await fetch(
+    `http://localhost:3000/stars/constellations`
+  );
 
   return {
     nearestStars: await nearestStars.json(),
     brightestStars: await brightestStars.json(),
-    constellations: await constellations.json()
+    hottestStars: await hottestStars.json(),
+    largestStars: await largestStars.json(),
+    constellations: await constellations.json(),
   };
 }
 
